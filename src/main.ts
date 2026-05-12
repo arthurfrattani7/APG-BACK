@@ -4,11 +4,11 @@ import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 import { NestExpressApplication } from "@nestjs/platform-express";
 import * as path from "path";
 
-const FRONTEND_URL = process.env.FRONTEND_URL;
+
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-
+  const FRONTEND_URL = process.env.FRONTEND_URL;
   app.enableCors({
     origin: FRONTEND_URL,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
