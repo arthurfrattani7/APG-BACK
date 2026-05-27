@@ -73,6 +73,24 @@ model users {
   comments      comments[]
   posts         posts[]
 }
+model Course {
+  id          String          @id @default(uuid())
+  title       String
+  bgClass     String
+  description String
+  duration    String
+  modules     Int
+  level       String
+  benefits    CourseBenefit[] 
+  hotmartLink String
+}
+
+model CourseBenefit {
+  id       String @id @default(uuid())
+  text     String
+  courseId String
+  course   Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
+}
 
 // Definição dos tipos de usuário conforme o banco.sql
 enum users_type {

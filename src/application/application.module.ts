@@ -10,6 +10,7 @@ import { JwtModule } from "@nestjs/jwt";
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { UserApplicationMapper } from "./mapping/changePassword.mapping";
 import { UploadApplication } from "./applications/upload.Application";
+import { CoursesApplication } from "./applications/courses.Application";
 
 @Module({
   imports: [
@@ -34,6 +35,7 @@ import { UploadApplication } from "./applications/upload.Application";
     CommentApplication,
     UserApplicationMapper,
     UploadApplication,
+    CoursesApplication,
   ],
   exports: [
     UserApplication,
@@ -43,6 +45,7 @@ import { UploadApplication } from "./applications/upload.Application";
     JwtModule,
     UserApplicationMapper,
     UploadApplication,
+    CoursesApplication,
   ],
 })
 export class ApplicationModule {}
