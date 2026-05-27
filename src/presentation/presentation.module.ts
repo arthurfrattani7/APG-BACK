@@ -5,6 +5,7 @@ import { PostController } from "./controllers/post.controller";
 import { CategoryController } from "./controllers/category.controller";
 import { CommentController } from "./controllers/comments.controller";
 import { UploadController } from "./controllers/upload.controller";
+import { CourseController } from "./controllers/course.controller";
 @Module({
   imports: [ApplicationModule],
   controllers: [
@@ -13,6 +14,7 @@ import { UploadController } from "./controllers/upload.controller";
     CategoryController,
     CommentController,
     UploadController,
+    CourseController
   ],
 })
 export class PresentationModule {}
