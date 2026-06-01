@@ -22,4 +22,8 @@ export class CoursesApplication {
   async updateCourse(id: string, data: Partial<IUpdateCourseData>): Promise<CourseResponseDto> {
     return await this.courses.updateCourse(id, data);
   }
+
+  async deleteCourse(id: string): Promise<void> {
+    await this.courses.deleteCourse(id);
+  }
 }

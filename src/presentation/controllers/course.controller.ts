@@ -1,5 +1,5 @@
 import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
-import { Controller, Post, UseGuards, Param, Get, Body, Put } from "@nestjs/common";
+import { Controller, Post, UseGuards, Param, Get, Body, Put, Delete } from "@nestjs/common";
 import { CoursesApplication } from "application/applications/courses.Application";
 import { CourseResponseDto } from "presentation/dto/response/courseResponse.dto";
 import { ApiOperation, ApiResponse } from "@nestjs/swagger";
@@ -69,5 +69,19 @@ export class CourseController {
     @Body() updateCourseDto: UpdatedCourseRequestDto,
   ): Promise<CourseResponseDto> {
     return this.courseApplication.updateCourse(id, updateCourseDto);
+  }
+
+  @Delete(":id")
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles("admin")
+  @ApiBearerAuth()
+  @ApiOperation({ summary: "Excluir um curso existente" })
+  @ApiResponse({
+    status: 200,
+    description: "Curso excluído com sucesso.",
+  })
+  @ApiResponse({ status: 404, description: "Curso não encontrado." })
+  async delete(@Param("id") id: string): Promise<void> {
+    return this.courseApplication.deleteCourse(id);
   }
 }

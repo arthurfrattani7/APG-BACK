@@ -24,4 +24,8 @@ export class CoursesDomain {
   ): Promise<CourseEntity> {
     return await this.coursesRepository.update(id, data);
   }
+
+  async deleteCourse(id: string): Promise<void> {
+    await this.coursesRepository.delete(id);
+  }
 }

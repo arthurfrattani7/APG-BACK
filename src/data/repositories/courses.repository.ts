@@ -71,4 +71,8 @@ export class CoursesRepository {
     });
     return this.mapper.course(courseDb);
   }
+
+  async delete(id: string): Promise<void> {
+    await this.db.course.delete({ where: { id } });
+  }
 }
