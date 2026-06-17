@@ -7,6 +7,7 @@
     "postinstall": "prisma generate",
     "build": "prisma generate && nest build",
     "start": "node dist/src/main.js",
+    "seed:admin": "ts-node scripts/seed-admin.ts",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/src/main.js",
